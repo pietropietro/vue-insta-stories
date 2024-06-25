@@ -26,7 +26,7 @@
     "switch:3": "vue-demi-switch 3"
   },
   "dependencies": {
-    "vue-demi": "^0.7.4"
+    "vue-demi": "^0.14.8"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-beta.1",
