@@ -29,13 +29,7 @@
     "vue-demi": "^0.14.8"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-beta.1",
     "vue": "^2.0.0 || >=3.0.0-rc.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.2.1",
