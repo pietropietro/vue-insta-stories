@@ -13,20 +13,18 @@ function _interopNamespace(e) {
                 var d = Object.getOwnPropertyDescriptor(e, k);
                 Object.defineProperty(n, k, d.get ? d : {
                     enumerable: true,
-                    get: function () {
-                        return e[k];
-                    }
+                    get: function () { return e[k]; }
                 });
             }
         });
     }
-    n['default'] = e;
+    n["default"] = e;
     return Object.freeze(n);
 }
 
 var VueDemi__namespace = /*#__PURE__*/_interopNamespace(VueDemi);
 
-/*! *****************************************************************************
+/******************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -80,7 +78,7 @@ function __generator(thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -102,6 +100,11 @@ function __generator(thisArg, body) {
     }
 }
 
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
+
 var hDemi = VueDemi__namespace.h, isVue2$1 = VueDemi__namespace.isVue2;
 var adaptOnsV3 = function (ons) {
     if (!ons)
@@ -110,7 +113,7 @@ var adaptOnsV3 = function (ons) {
         var _b;
         var key = _a[0], handler = _a[1];
         key = key.charAt(0).toUpperCase() + key.slice(1);
-        key = "on" + key;
+        key = "on".concat(key);
         return __assign(__assign({}, ret), (_b = {}, _b[key] = handler, _b));
     }, {});
 };
@@ -247,7 +250,7 @@ var getRender = function (type) {
         case 'video':
             return Video;
         default:
-            throw new Error("Did not find a render for type " + type);
+            throw new Error("Did not find a render for type ".concat(type));
     }
 };
 var render = function (_a, $slots) {
@@ -257,7 +260,7 @@ var render = function (_a, $slots) {
     if (template) {
         var slot$1 = $slots[template];
         if (!slot$1)
-            throw new Error("unable to find the template '" + template + "'");
+            throw new Error("unable to find the template '".concat(template, "'"));
         return slot(slot$1, attrs);
     }
     return h(getRender(type), attrs);
@@ -302,7 +305,7 @@ var Progress = defineComponent$2({
         }
     },
     render: function () {
-        var style = { width: this.progress + "%" };
+        var style = { width: "".concat(this.progress, "%") };
         return h('div', { class: 'slice', }, [h('div', { class: 'progress', style: style })]);
     }
 });

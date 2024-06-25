@@ -26,7 +26,8 @@
     "switch:3": "vue-demi-switch 3"
   },
   "dependencies": {
-    "vue-demi": "^0.14.8"
+    "tslib": "^2.6.3",
+    "vue-demi": "^0.14.5"
   },
   "peerDependencies": {
     "vue": "^2.0.0 || >=3.0.0-rc.0"

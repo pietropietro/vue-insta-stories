@@ -1,14 +1,13 @@
-
 import typescript from '@rollup/plugin-typescript';
-import PostCSS from 'rollup-plugin-postcss'
-import pkg from './package.json'
+import PostCSS from 'rollup-plugin-postcss';
+import pkg from './package.json';
 
-const external = ['vue-demi']
+const external = ['vue-demi'];
 
 const plugins = [
   typescript(),
-  PostCSS(),
-]
+  PostCSS()
+];
 
 export default [
   {
@@ -24,12 +23,12 @@ export default [
       {
         exports: 'named',
         format: 'cjs',
-        file: pkg.main
+        file: pkg.main,
       },
       {
         file: pkg.unpkg,
         format: 'umd',
-        name: 'VueInstaStory',
+        name: 'VueInstaStories',
         sourcemap: true,
         globals: {
           'vue-demi': 'VueDemi',
@@ -37,4 +36,4 @@ export default [
       }
     ]
   }
-]
+];
