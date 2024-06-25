@@ -1,4 +1,6 @@
-import { defineComponent } from 'vue-demi'
+import * as VueDemi from 'vue-demi';
+const { defineComponent } = VueDemi;
+
 import render from '../renders'
 
 import Timeline from './Timeline'
@@ -6,7 +8,7 @@ import wrapWithSeeMore from './WithSeeMore'
 
 import { StoryOptions } from '../types';
 import { fadeOut, fadeIn, getX } from "../utils";
-import h, { slot } from "../utils/h-demi"
+import h, { slot } from '../utils/h-demi';
 
 import '../main.css'
 

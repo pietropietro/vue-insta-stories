@@ -1,5 +1,6 @@
 import { StoryOptions } from 'src/types'
-import { defineComponent, } from 'vue-demi'
+import * as VueDemi from 'vue-demi';
+const { defineComponent } = VueDemi;
 import h from "../utils/h-demi"
 import '../main.css'
 

@@ -1,6 +1,6 @@
 import { StoryOptions } from 'src/types'
-import { Slots } from 'vue-demi'
-
+import * as VueDemi from 'vue-demi';
+const { Slots } = VueDemi;
 import h, { slot as slotDemi } from '../utils/h-demi'
 import Image from './Image'
 import Video from './Video'

@@ -1,5 +1,6 @@
 import { SeeMoreOptions } from 'src/types';
-import { defineComponent, VNode, isVue2 } from 'vue-demi'
+import * as VueDemi from 'vue-demi';
+const { defineComponent, VNode, isVue2 } = VueDemi;
 import h, { slot } from '../utils/h-demi'
 
 const WithSeeMore = defineComponent({
