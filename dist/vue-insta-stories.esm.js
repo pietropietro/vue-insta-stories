@@ -1,4 +1,4 @@
-import { isVue2, h as h$1, defineComponent } from 'vue-demi';
+import * as VueDemi from 'vue-demi';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -76,6 +76,7 @@ function __generator(thisArg, body) {
     }
 }
 
+var hDemi = VueDemi.h, isVue2$1 = VueDemi.isVue2;
 var adaptOnsV3 = function (ons) {
     if (!ons)
         return null;
@@ -89,12 +90,12 @@ var adaptOnsV3 = function (ons) {
 };
 var h = function (type, options, chidren) {
     if (options === void 0) { options = {}; }
-    if (isVue2)
-        return h$1(type, options, chidren);
+    if (isVue2$1)
+        return hDemi(type, options, chidren);
     var props = options.props, domProps = options.domProps, on = options.on, extraOptions = __rest(options, ["props", "domProps", "on"]);
     var ons = adaptOnsV3(on);
     var params = __assign(__assign(__assign(__assign({}, extraOptions), props), domProps), ons);
-    return h$1(type, params, chidren);
+    return hDemi(type, params, chidren);
 };
 var slot = function (s, attrs) {
     if (typeof s == 'function')
@@ -102,7 +103,8 @@ var slot = function (s, attrs) {
     return s;
 };
 
-var Image = defineComponent({
+var defineComponent$4 = VueDemi.defineComponent;
+var Image = defineComponent$4({
     props: {
         story: {
             type: Object,
@@ -126,7 +128,8 @@ var Image = defineComponent({
     }
 });
 
-var Video = defineComponent({
+var defineComponent$3 = VueDemi.defineComponent;
+var Video = defineComponent$3({
     props: {
         story: {
             type: Object,
@@ -264,7 +267,8 @@ function styleInject(css, ref) {
 var css_248z = ".vue-insta-stories {\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  background: #111;\n}\n\n.vue-insta-stories-full {\n  position: absolute;\n  height: 100vh;\n  height: -webkit-fill-available;\n  width: 100vw;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n\n.vue-insta-stories-page {\n position: relative;\n height: 730px default;\n width: 420px default;\n}\n\n.vue-insta-stories .header {\n  position: absolute;\n  z-index: 10;\n  top: 22px;\n  left: 16px;\n}\n\n.vue-insta-stories .timeline {\n  position: absolute;\n  display: flex;\n  flex-grow: 0;\n  width: 100%;\n  background: -webkit-gradient(\n    linear,\n    top,\n    bottom,\n    from(rgba(0, 0, 0, 0.2)),\n    to(rgba(0, 0, 0, 0))\n  );\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));\n  padding-bottom: 8px; /* To add more space for gradient */\n  z-index: 10;\n}\n\n.vue-insta-stories .timeline > .slice {\n  background: rgba(255, 255, 255, 0.5);\n  height: 2px;\n  border-radius: 2px;\n  margin: 6px 3px;\n  width: 100%;\n}\n\n.vue-insta-stories .timeline > .slice > .progress {\n  background: #fff;\n  height: 2px;\n  border-radius: 2px;\n  width: 0%;\n}\n\n.see-more-wrapper {\n  flex-grow: 1;\n  display: flex;\n  position: relative;\n}\n\n.see-more-wrapper .see-more {\n  position: absolute;\n  height: 10vh;\n  flex-direction: column;\n  width: 100%;\n  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  bottom: 0;\n  z-index: 10;\n}\n\n.see-more-wrapper .see-more-text, .see-more-wrapper .see-more-icon {\n  color: white;\n  letter-spacing: 0.1em;\n  font-weight: bold;\n  font-size: 1rem;\n  transition: opacity 300ms ease-in-out;\n}\n.see-more-wrapper .see-more-text {\n  letter-spacing: 0.1em;\n  margin-bottom: 2.2vh;\n}";
 styleInject(css_248z);
 
-var Progress = defineComponent({
+var defineComponent$2 = VueDemi.defineComponent;
+var Progress = defineComponent$2({
     props: {
         progress: {
             type: Number,
@@ -276,7 +280,7 @@ var Progress = defineComponent({
         return h('div', { class: 'slice', }, [h('div', { class: 'progress', style: style })]);
     }
 });
-var Timeline = defineComponent({
+var Timeline = defineComponent$2({
     props: {
         stories: {
             type: Array,
@@ -360,7 +364,8 @@ var Timeline = defineComponent({
     }
 });
 
-var WithSeeMore = defineComponent({
+var defineComponent$1 = VueDemi.defineComponent, isVue2 = VueDemi.isVue2;
+var WithSeeMore = defineComponent$1({
     name: "WithSeeMore",
     props: {
         enabled: {
@@ -462,6 +467,7 @@ var getX = function (e) {
     return touch.clientX;
 };
 
+var defineComponent = VueDemi.defineComponent;
 var Stories = defineComponent({
     name: "Stories",
     props: {

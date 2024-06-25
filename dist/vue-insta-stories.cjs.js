@@ -2,7 +2,29 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var vueDemi = require('vue-demi');
+var VueDemi = require('vue-demi');
+
+function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+        Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () {
+                        return e[k];
+                    }
+                });
+            }
+        });
+    }
+    n['default'] = e;
+    return Object.freeze(n);
+}
+
+var VueDemi__namespace = /*#__PURE__*/_interopNamespace(VueDemi);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -80,6 +102,7 @@ function __generator(thisArg, body) {
     }
 }
 
+var hDemi = VueDemi__namespace.h, isVue2$1 = VueDemi__namespace.isVue2;
 var adaptOnsV3 = function (ons) {
     if (!ons)
         return null;
@@ -93,12 +116,12 @@ var adaptOnsV3 = function (ons) {
 };
 var h = function (type, options, chidren) {
     if (options === void 0) { options = {}; }
-    if (vueDemi.isVue2)
-        return vueDemi.h(type, options, chidren);
+    if (isVue2$1)
+        return hDemi(type, options, chidren);
     var props = options.props, domProps = options.domProps, on = options.on, extraOptions = __rest(options, ["props", "domProps", "on"]);
     var ons = adaptOnsV3(on);
     var params = __assign(__assign(__assign(__assign({}, extraOptions), props), domProps), ons);
-    return vueDemi.h(type, params, chidren);
+    return hDemi(type, params, chidren);
 };
 var slot = function (s, attrs) {
     if (typeof s == 'function')
@@ -106,7 +129,8 @@ var slot = function (s, attrs) {
     return s;
 };
 
-var Image = vueDemi.defineComponent({
+var defineComponent$4 = VueDemi__namespace.defineComponent;
+var Image = defineComponent$4({
     props: {
         story: {
             type: Object,
@@ -130,7 +154,8 @@ var Image = vueDemi.defineComponent({
     }
 });
 
-var Video = vueDemi.defineComponent({
+var defineComponent$3 = VueDemi__namespace.defineComponent;
+var Video = defineComponent$3({
     props: {
         story: {
             type: Object,
@@ -268,7 +293,8 @@ function styleInject(css, ref) {
 var css_248z = ".vue-insta-stories {\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  background: #111;\n}\n\n.vue-insta-stories-full {\n  position: absolute;\n  height: 100vh;\n  height: -webkit-fill-available;\n  width: 100vw;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n\n.vue-insta-stories-page {\n position: relative;\n height: 730px default;\n width: 420px default;\n}\n\n.vue-insta-stories .header {\n  position: absolute;\n  z-index: 10;\n  top: 22px;\n  left: 16px;\n}\n\n.vue-insta-stories .timeline {\n  position: absolute;\n  display: flex;\n  flex-grow: 0;\n  width: 100%;\n  background: -webkit-gradient(\n    linear,\n    top,\n    bottom,\n    from(rgba(0, 0, 0, 0.2)),\n    to(rgba(0, 0, 0, 0))\n  );\n  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));\n  padding-bottom: 8px; /* To add more space for gradient */\n  z-index: 10;\n}\n\n.vue-insta-stories .timeline > .slice {\n  background: rgba(255, 255, 255, 0.5);\n  height: 2px;\n  border-radius: 2px;\n  margin: 6px 3px;\n  width: 100%;\n}\n\n.vue-insta-stories .timeline > .slice > .progress {\n  background: #fff;\n  height: 2px;\n  border-radius: 2px;\n  width: 0%;\n}\n\n.see-more-wrapper {\n  flex-grow: 1;\n  display: flex;\n  position: relative;\n}\n\n.see-more-wrapper .see-more {\n  position: absolute;\n  height: 10vh;\n  flex-direction: column;\n  width: 100%;\n  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  bottom: 0;\n  z-index: 10;\n}\n\n.see-more-wrapper .see-more-text, .see-more-wrapper .see-more-icon {\n  color: white;\n  letter-spacing: 0.1em;\n  font-weight: bold;\n  font-size: 1rem;\n  transition: opacity 300ms ease-in-out;\n}\n.see-more-wrapper .see-more-text {\n  letter-spacing: 0.1em;\n  margin-bottom: 2.2vh;\n}";
 styleInject(css_248z);
 
-var Progress = vueDemi.defineComponent({
+var defineComponent$2 = VueDemi__namespace.defineComponent;
+var Progress = defineComponent$2({
     props: {
         progress: {
             type: Number,
@@ -280,7 +306,7 @@ var Progress = vueDemi.defineComponent({
         return h('div', { class: 'slice', }, [h('div', { class: 'progress', style: style })]);
     }
 });
-var Timeline = vueDemi.defineComponent({
+var Timeline = defineComponent$2({
     props: {
         stories: {
             type: Array,
@@ -364,7 +390,8 @@ var Timeline = vueDemi.defineComponent({
     }
 });
 
-var WithSeeMore = vueDemi.defineComponent({
+var defineComponent$1 = VueDemi__namespace.defineComponent, isVue2 = VueDemi__namespace.isVue2;
+var WithSeeMore = defineComponent$1({
     name: "WithSeeMore",
     props: {
         enabled: {
@@ -436,7 +463,7 @@ var WithSeeMore = vueDemi.defineComponent({
 var wrapWithSeeMore = function (storyNode, options, action) {
     if (!options)
         return storyNode;
-    var vnode = vueDemi.isVue2 ? [storyNode] : { default: function () { return storyNode; } };
+    var vnode = isVue2 ? [storyNode] : { default: function () { return storyNode; } };
     var label = options === true ? undefined : options.label;
     return h(WithSeeMore, { props: { label: label }, on: { action: action } }, vnode);
 };
@@ -466,7 +493,8 @@ var getX = function (e) {
     return touch.clientX;
 };
 
-var Stories = vueDemi.defineComponent({
+var defineComponent = VueDemi__namespace.defineComponent;
+var Stories = defineComponent({
     name: "Stories",
     props: {
         stories: {
