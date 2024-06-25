@@ -1,54 +1,116 @@
-<h1 align="center">vue-insta-stories</h1>
-<p align="center">
-  Vue component for Instagram stories<br/>
-</p>
+## Simple usage
+```vue
+<template>
+  <Stories :stories="items" />
+</template>
 
-<p align="center">
-<a href="https://www.npmjs.com/package/vue-insta-stories" target="__blank"><img src="https://img.shields.io/npm/v/vue-insta-stories?color=2B90B6&label=" alt="NPM version"></a>
-<a href="https://www.npmjs.com/package/vue-insta-stories" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/vue-insta-stories?color=349dbe&label="></a>
-<a href="https://vue-insta-stories.donld.me" target="__blank"><img src="https://img.shields.io/static/v1?label=&message=Live%20demo&color=45b8cd" alt="Docs & Demos"></a>
-<br>
-<a href="https://github.com/dnldsht/vue-insta-stories" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/dnldsht/vue-insta-stories?style=social"></a>
-</p>
-
-
-
-<br/>
-<img height="600" src="https://i.imgur.com/gyX0XFw.png"/>
-
-## Install
-```bash
-yarn add vue-insta-stories
+<script>
+import { Stories } from "vue-insta-stories";
+export default {
+  components: { Stories },
+  data: () => ({
+    items: [
+      "https://picsum.photos/350/200/",
+      "https://picsum.photos/400/201/",
+      {
+        url: "https://file-examples-com.github.io/5mb.mp4",
+        type: "video",
+      },
+    ]
+  })
+};
+</script>
 ```
 
-## Usage
-Work in progress documentation can be found [here](https://github.com/dnldsht/vue-insta-stories/tree/main/packages/lib#readme)
+### Props
+| Property              | Type                  | Default  | Description                                                        |
+|-----------------------|-----------------------|----------|--------------------------------------------------------------------|
+| `stories`             | Array<String\|Object> | required | An array of image urls or array of story objects (more info below) |
+| `interval`            | Number                | 2000     | Story duration in milliseconds                                     |
+| `isPaused`            | Boolean               | false    | Toggle the playing state                                           |
+| `loop`                | Boolean               | false    | Loop through stories                                               |
+| `currentIndex`        | Number                | 0        | Set the current story index                                        |
+| **Events**            |                       |          |                                                                    |
+| `storyStart`          | Function(index)       | -        | Callback when a story starts                                       |
+| `storyEnd`            | Function(index)       | -        | Callback when a story ends                                         |
+| `allStoriesEnd`       | Function()            | -        | Callback when all stories have ended (not emitted if loop=true)    |
+| `seeMore`             | Function(story)       | -        | Callback when user have pressed See more                           |
+| `prev`                | Function()            | -        | Callback when user press prev                                      |
+| `next`                | Function()            | -        | Callback when user press next                                      |
+| `update:currentIndex` | Function(index)       | -        |                                                                    |
+| `update:isPaused`     | Function(paused)      | -        |                                                                    |
 
-## Features
-- Works with vue 2/3
-- Timer and timeline on the top
-- Swipe up to see more
-- Hold to pause current story
-- Tap to navigate between stories
-- Straight forward usage for images & videos
-- Header slot
-- Custom templates
-  
-## Contributing
-We are open to pull requests!
-  
-### How to test the lib  
-```bash
-yarn lib:watch # watch for changes on the lib package
-yarn dev # starts vue3 demo
-yarn dev:2 # starts vue2 demo
-  
-# check yarn link to test the new version in your project
+### Story Object
+| Property   | Description                                                          |
+|------------|----------------------------------------------------------------------|
+| `url`      | The url of the resource, image or video.                             |
+| `type`     | Optional. Type of the story. `'image' \| 'video'`                    |
+| `duration` | Optional. Duration for which a story should persist.                 |
+| `template` | Optional. Renders story in a different template see more below.      |
+| `seeMore`  | Optional. Enable see more on story (`true \| { label: 'See more!' }` |
+
+## Style
+```scss
+/** full screen on mobile & fixed size on desktop **/
+.ig-stories {
+  position: absolute;
+  height: 100vh;
+  height: -webkit-fill-available;
+  width: 100vw;
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .ig-stories {
+    position: relative;
+    height: 730px;
+    width: 420px;
+  }
+}
+```
+if you are using tailwind you can write 
+```html
+<Stories class="absolute top-0 h-100vh w-100vw md:(h-730px w-420px relative)" />
 ```
 
+## With header
+```vue
+<template>
+  <Stories :stories="items">
+    <template #header="{story}">
+      <story-header :story="story" />
+    </template>
+  </Stories>
+</template>
 
-## Credits
-This project was inspired by @kayue [work](https://github.com/kayue/vue-story-example)
+<script>
+import { Stories } from "vue-insta-stories";
+export default {
+  components: { Stories },
+  data: () => ({
+    items: [ "https://picsum.photos/350/200/"]
+  })
+};
+</script>
+```
 
-## License
-MIT - Copyright (c) 2021 Uneven Software
+## With custom slot
+```vue
+<template>
+  <Stories :stories="items">
+    <template #pool="{story}">
+        <pool-story :story="story" class="flex-grow"></pool-story>
+    </template>
+  </Stories>
+</template>
+
+<script>
+import { Stories } from "vue-insta-stories";
+export default {
+  components: { Stories },
+  data: () => ({
+    items: [{ poolId: 23, template: "pool" }]
+  })
+};
+</script>
+```

@@ -1,19 +1,31 @@
 # Changelog
 
 
-## v0.9.6
+## v0.9.8
 
-[compare changes](https://github.com/UnevenSoftware/vue-insta-stories/compare/0.9.3...v0.9.4)
+[compare changes](https://github.com/UnevenSoftware/vue-insta-stories/compare/v0.9.7...v0.9.8)
 
-### 🩹 Fixes
+### 💅 Refactors
 
-- Index issue when loop is enabled ([1e6779a](https://github.com/UnevenSoftware/vue-insta-stories/commit/1e6779a))
-- Emit storyStart for first item ([1c13ec7](https://github.com/UnevenSoftware/vue-insta-stories/commit/1c13ec7))
-- Emit allStoriesEnd when loop is set ([d80906a](https://github.com/UnevenSoftware/vue-insta-stories/commit/d80906a))
-
+- Events ([f0402cc](https://github.com/UnevenSoftware/vue-insta-stories/commit/f0402cc))
 
 ### ❤️ Contributors
 
 - Dnldsht ([@dnldsht](http://github.com/dnldsht))
-- Noé Gnanih <mstr.rkn@gmail.com>
+
+## v0.9.7
+
+[compare changes](https://github.com/UnevenSoftware/vue-insta-stories/compare/v0.9.6...v0.9.7)
+
+### 🩹 Fixes
+
+- Events on click ([44b6a4d](https://github.com/UnevenSoftware/vue-insta-stories/commit/44b6a4d))
+
+### 🏡 Chore
+
+- Updated demo ([b030fb0](https://github.com/UnevenSoftware/vue-insta-stories/commit/b030fb0))
+
+### ❤️ Contributors
+
+- Dnldsht ([@dnldsht](http://github.com/dnldsht))
 
